@@ -2,7 +2,7 @@
 
 import matplotlib.pyplot as plt
 from prep_terrain_data import makeTerrainData
-from class_vis import prettyPicture
+from class_vis import prettyPicture, output_image
 
 features_train, labels_train, features_test, labels_test = makeTerrainData()
 
@@ -31,14 +31,32 @@ plt.show()
 ### your code here!  name your classifier object clf if you want the 
 ### visualization code (prettyPicture) to show you the decision boundary
 
+# k-nearest neighters
+## Accuracy = 0.94
+from sklearn.neighbors import KNeighborsClassifier
+clf = KNeighborsClassifier(n_neighbors=1)
+clf.fit(features_train, labels_train)
+acc = clf.score(features_test, labels_test)
+print 'Accuracy = {0}'.format(acc)
 
+## random forest
+## Accuracy = 0.92
+from sklearn.ensemble import RandomForestClassifier
+clf = RandomForestClassifier()
+clf = clf.fit(features_train, labels_train)
+acc = clf.score(features_test, labels_test)
+print 'Accuracy = {0}'.format(acc)
 
-
-
-
-
+## AdaBoost 
+## Accuracy = 0.924
+from sklearn.ensemble import AdaBoostClassifier
+clf = AdaBoostClassifier(n_estimators=100)
+clf = clf.fit(features_train, labels_train)
+acc = clf.score(features_test, labels_test)
+print 'Accuracy = {0}'.format(acc)
 
 try:
     prettyPicture(clf, features_test, labels_test)
+    output_image("test.png", "png", open("test.png", "rb").read())
 except NameError:
     pass
