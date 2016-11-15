@@ -9,3 +9,5 @@ Mini-projects for Intro to Machine Learning on Udacity
 
 ## Mini-Project: [Choose Your Own](https://github.com/akueisara/intro-to-machine-learning/tree/master/choose_your_own)
 k-nearest neighbors, Random Forest, and AdaBoost
+
+## Mini-Project: [Datasets and Questions](https://github.com/akueisara/intro-to-machine-learning/tree/master/datasets_questionss)
